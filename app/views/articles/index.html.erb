@@ -1,0 +1,7 @@
+<h1>Articles in our database</h1>
+
+<ul>
+  <% @articles.each do |a| %>
+    <li><%= link_to( a.heading, a.url ) %></li>
+  <% end %>
+</ul>

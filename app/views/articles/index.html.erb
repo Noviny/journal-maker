@@ -2,6 +2,6 @@
 
 <ul>
   <% @articles.each do |a| %>
-    <li><%= link_to( a.heading, a.url ) %></li>
+    <li><%= link_to( a.heading, a.url ) %> - <%= link_to( 'Edit Details', edit_article_path(a.id) ) %></li>
   <% end %>
 </ul>

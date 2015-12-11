@@ -16,4 +16,4 @@ b3 = Book.create :name => 'Magic Color Pie'
 
 User.destroy_all
 
-u1 = User.create :name => 'Noviny', :email => 'benjaminconolly@gmail.com'
+u1 = User.create :name => 'Noviny', :email => 'benjaminconolly@gmail.com', :password => 'phlebas', :password_confirmatiion => 'phlebas'

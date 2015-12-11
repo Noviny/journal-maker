@@ -1,0 +1,9 @@
+<%= simple_form_for @article do |f| %>
+  <%= f.input :heading %>
+  <%= f.input :url %>
+  <%= f.input :description, :required => false %>
+  <%= f.input :image, :required => false %>
+  <%= f.input :excerpt, :required => false %>
+  <%= f.input :date %>
+  <%= f.submit %>
+<% end %>

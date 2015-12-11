@@ -1,2 +1,15 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h1><%= @book.name %></h1>
+
+  <% if @book.articles.any? %>
+    <ul>
+    <% @book.articles.each do |a| %>
+      <li><%= link_to(a.heading, a.url) %></li>
+    <% end %>
+    </ul>
+  <% else %>
+    <p>No Articles in this book yet.</p>
+  <% end %>
+
+
+<%= link_to('Edit Book', edit_book_path) %>
+<%= button_to 'Delete Book',@book, :method => :delete, :data => { :confirm => "Burn the book?"} %>

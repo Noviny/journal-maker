@@ -16,4 +16,13 @@ b3 = Book.create :name => 'Magic Color Pie'
 
 User.destroy_all
 
-u1 = User.create :name => 'Noviny', :email => 'benjaminconolly@gmail.com', :password => 'phlebas', :password_confirmatiion => 'phlebas'
+u1 = User.create :name => 'Noviny', :email => 'nov@nov', :password => 'nov', :password_confirmation => 'nov'
+u2 = User.create :name => 'Ben', :email => 'ben@ben', :password => 'ben', :password_confirmation => 'ben'
+u3 = User.create :name => 'Kiah', :email => 'kiah@kiah', :password => 'kiah', :password_confirmation => 'kiah'
+
+b1.articles << a1 << a2
+b2.articles << a2
+b3.articles << a3 << a4 << a5 << a6 << a7
+
+u1.books << b1 << b2
+u2.books << b3

@@ -12,12 +12,12 @@
     <% if @current_user.present? %>
       <%= link_to("Logout #{ @current_user.name }", login_path, :method => :delete) %>
       <%= link_to("My Books", '/users/books') %>
+      <%= link_to('All Articles', articles_path) %>
+      <%= link_to('Add Article', new_article_path) %>
     <% else %>
       <%= link_to('Log In', login_path) %>
       <%= link_to('Sign Up', new_user_path) %>
     <% end %>
-    <%= link_to('All Articles', articles_path) %>
-    <%= link_to('Add Article', new_article_path) %>
     <%= link_to('All Books', books_path) %>
     <%= link_to('Create Book', new_book_path) %>
   </nav>

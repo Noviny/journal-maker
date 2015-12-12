@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :check_if_logged_in, :except => [:index, :show]
+
   def index
     @articles = Article.all
   end
@@ -14,6 +16,10 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def supercreate
+    @article = Article.new
   end
 
   def edit
@@ -33,5 +39,9 @@ class ArticlesController < ApplicationController
   private
   def article_params
     params.require(:article).permit(:heading, :url, :description, :image, :excerpt, :date)
+  end
+
+  def check_if_logged_in
+    redirect_to root_path unless @current_user.present?
   end
 end

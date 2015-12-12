@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212043638) do
+ActiveRecord::Schema.define(version: 20151212124911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(version: 20151212043638) do
     t.integer "book_id"
   end
 
+  create_table "articles_chapters", id: false, force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "chapter_id"
+  end
+
   create_table "authors", force: :cascade do |t|
     t.string   "name"
     t.string   "job"
@@ -43,6 +48,30 @@ ActiveRecord::Schema.define(version: 20151212043638) do
 
   create_table "books", force: :cascade do |t|
     t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "description"
+    t.string   "subheading"
+    t.string   "status"
+    t.boolean  "private"
+  end
+
+  create_table "books_shelves", id: false, force: :cascade do |t|
+    t.integer "shelf_id"
+    t.integer "book_id"
+  end
+
+  create_table "chapters", force: :cascade do |t|
+    t.text     "name"
+    t.integer  "book_id"
+    t.integer  "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shelves", force: :cascade do |t|
+    t.text     "name"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,6 +105,12 @@ ActiveRecord::Schema.define(version: 20151212043638) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

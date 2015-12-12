@@ -13,6 +13,7 @@
 
 class User < ActiveRecord::Base
   has_many :books
+  has_many :shelves
   has_secure_password
   validates :email, :presence => true, :uniqueness => true
   validates :name, :presence => true, :length => { :minimum => 2 }

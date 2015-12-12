@@ -1,9 +1,14 @@
 class BooksController < ApplicationController
+  before_action :check_if_logged_in, :except => [:index, :show, :new]
+
   def index
     @books = Book.all
   end
 
   def new
+    unless @current_user.present?
+      redirect_to new_user_path
+    end
     @book = Book.new
     @article = Article.new
   end
@@ -42,5 +47,9 @@ class BooksController < ApplicationController
   private
   def book_params
     params.require(:book).permit(:name, :article_ids => [])
+  end
+
+  def check_if_logged_in
+    redirect_to root_path unless @current_user.present?
   end
 end

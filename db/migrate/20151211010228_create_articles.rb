@@ -7,6 +7,8 @@ class CreateArticles < ActiveRecord::Migration
       t.string :image
       t.text :excerpt
       t.date :date
+      t.integer :author_id
+      t.integer :source_id
       t.timestamps null: false
     end
   end

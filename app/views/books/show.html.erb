@@ -10,6 +10,11 @@
     <p>No Articles in this book yet.</p>
   <% end %>
 
-
-<%= link_to('Edit Book', edit_book_path) %>
-<%= button_to 'Delete Book',@book, :method => :delete, :data => { :confirm => "Burn the book?"} %>
+<% if @current_user.present? && (@book.user === @current_user) %>
+  <%= link_to('Edit Book', edit_book_path) %>
+  <%= button_to 'Delete Book',@book, :method => :delete, :data => { :confirm => "Burn the book?"} %>
+<% elsif @current_user.present? %>
+  <p>Some stuff about adding book to your bookshelf</p>
+<% else %>
+  <p>Not logged in whatever features</p>
+<% end %>

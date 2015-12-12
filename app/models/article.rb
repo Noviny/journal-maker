@@ -15,4 +15,6 @@
 
 class Article < ActiveRecord::Base
   has_and_belongs_to_many :books
+  belongs_to :author
+  belongs_to :source
 end

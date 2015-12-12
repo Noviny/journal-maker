@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20151212043638) do
     t.string   "image"
     t.text     "excerpt"
     t.date     "date"
+    t.integer  "author_id"
+    t.integer  "source_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

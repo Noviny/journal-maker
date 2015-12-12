@@ -20,12 +20,14 @@ u1 = User.create :name => 'Noviny', :email => 'nov@nov', :password => 'nov', :pa
 u2 = User.create :name => 'Ben', :email => 'ben@ben', :password => 'ben', :password_confirmation => 'ben'
 u3 = User.create :name => 'Kiah', :email => 'kiah@kiah', :password => 'kiah', :password_confirmation => 'kiah'
 
-au1 = Author.create :name => 'Mark Rosewater', =>:job 'Head of Magic Design'
+Author.destroy_all
+au1 = Author.create :name => 'Mark Rosewater', :job => 'Head of Magic Design'
 
+Source.destroy_all
 s1 = Source.create :name => 'DailyMTG', :topic => 'Magic, the Gathering', :description => 'Daily content on Magic: the Gathering and other topics. It has been running for more than ten years with a massive back-catalog.'
 
 au1.articles << a1 << a2 << a3 << a4 << a5 << a6 << a7
-s.articles << a1 << a2 << a3 << a4 << a5 << a6 << a7
+s1.articles << a1 << a2 << a3 << a4 << a5 << a6 << a7
 
 b1.articles << a1 << a2
 b2.articles << a2

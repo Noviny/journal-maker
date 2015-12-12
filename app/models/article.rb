@@ -9,6 +9,8 @@
 #  image       :string
 #  excerpt     :text
 #  date        :date
+#  author_id   :integer
+#  source_id   :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

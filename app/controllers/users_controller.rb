@@ -16,6 +16,12 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def books
+    unless @current_user.present?
+      redirect_to login_path
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)

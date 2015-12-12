@@ -1,2 +1,20 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<h1><%= link_to( @article.heading, @article.url) %></h1>
+
+<ul>
+  <li>Published on: <%= @article.date %></li>
+  <li>Author: <%= @article.author.name %></li>
+  <li>Published on: <%= @article.source.name %></li>
+  <li><%= image_tag( @article.image ) %></li> 
+  <li><%= @article.description %></li>
+  <li><%= @article.excerpt %></li>
+  <li>In the following books:</li>
+  <ul>
+    <% if @article.books.any? %>
+      <% @article.books.each do |b| %>
+      <li><%= link_to( b.name, book_path(b.id) ) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</ul>
+
+<%= link_to( 'Edit Details', edit_article_path(@article.id) ) %>

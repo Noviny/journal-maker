@@ -3,8 +3,8 @@
 <%= simple_form_for @book do |f| %>
     <%= f.collection_check_boxes :article_ids, Article.all, :id, :heading %>
     <%= f.simple_fields_for :articles do |na| %>
-      <%= an.input :heading %>
-      <%= an.input :url %>
+      <%= na.input :heading %>
+      <%= na.input :url %>
     <% end %>
   <%= f.submit %>
 <% end %>

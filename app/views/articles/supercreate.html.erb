@@ -1,6 +1,6 @@
 <h2>Huzzah!</h2>
 
-<%= simple_form_for @article do |f| %>
+<%= simple_form_for @article, :url => articles_supercreate_path, :method => :post  do |f| %>
   <%= f.input :url, as: :text %>
   <%= f.submit 'add all articles' %>
 <% end %>

@@ -16,7 +16,7 @@ b3 = Book.create :name => 'Magic Color Pie'
 
 User.destroy_all
 
-u1 = User.create :name => 'Noviny', :email => 'nov@nov', :password => 'nov', :password_confirmation => 'nov'
+u1 = User.create :name => 'Noviny', :email => 'nov@nov', :password => 'nov', :password_confirmation => 'nov', :admin => true
 u2 = User.create :name => 'Ben', :email => 'ben@ben', :password => 'ben', :password_confirmation => 'ben'
 u3 = User.create :name => 'Kiah', :email => 'kiah@kiah', :password => 'kiah', :password_confirmation => 'kiah'
 
@@ -24,7 +24,7 @@ Author.destroy_all
 au1 = Author.create :name => 'Mark Rosewater', :job => 'Head of Magic Design'
 
 Source.destroy_all
-s1 = Source.create :name => 'DailyMTG', :topic => 'Magic, the Gathering', :description => 'Daily content on Magic: the Gathering and other topics. It has been running for more than ten years with a massive back-catalog.'
+s1 = Source.create :name => 'DailyMTG', :topic => 'Magic, the Gathering', :domain => 'dailymtg.com', :description => 'Daily content on Magic: the Gathering and other topics. It has been running for more than ten years with a massive back-catalog.'
 
 au1.articles << a1 << a2 << a3 << a4 << a5 << a6 << a7
 s1.articles << a1 << a2 << a3 << a4 << a5 << a6 << a7

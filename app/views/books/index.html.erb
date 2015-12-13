@@ -2,6 +2,6 @@
 
 <ul>
 <% @books.each do |b| %>
-  <li><%= link_to(b.name, book_path(b.id)) %>, has <%= b.articles.length %> articles in it</li>
+  <li><%= link_to(b.name, book_path(b.id)) %>, has <%= pluralize( b.articles.length, 'article' ) %> in it</li>
 <% end %>
 </ul>

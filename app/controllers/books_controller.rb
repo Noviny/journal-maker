@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :check_if_logged_in, :except => [:index, :show, :new]
+  before_action :check_if_mine_or_admin, :only => [:update, :destroy]
 
   def index
     @books = Book.all
@@ -51,5 +52,9 @@ class BooksController < ApplicationController
 
   def check_if_logged_in
     redirect_to root_path unless @current_user.present?
+  end
+
+  def check_if_mine_or_admin
+    redirect_to root_path unless ( @current_user.present && ( ( @book.user === @current_user ) || @current_user.admin? ) )
   end
 end

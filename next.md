@@ -18,3 +18,7 @@ TOPICS
 
 - Articles _form need an author and source field
   - this needs to add authors and sources correctly if they don't exist, rather than checkbox or dropdown
+
+Add the 'D' to CRUDs all around (articles, books)
+Add admin boolean to users
+Lock people out of D-ing any articles, books not theirs

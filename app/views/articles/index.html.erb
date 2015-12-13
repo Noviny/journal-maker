@@ -4,7 +4,7 @@
   <% @articles.each do |a| %>
     <ul>
     <li><%= link_to( a.heading, a.url ) %> - <%= link_to( 'See full details', article_path(a.id) ) %> - <%= link_to( 'Edit Details', edit_article_path(a.id) ) %></li>
-    <li>This article appears in <%= a.books.length %> books</li>
+    <li>This article appears in <%= pluralize(a.books.length, 'book') %></li>
     </ul>
   <% end %>
 </ul>

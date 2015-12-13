@@ -12,7 +12,7 @@
 
 <% if @current_user.present? && (@book.user === @current_user) %>
   <%= link_to('Edit Book', edit_book_path) %>
-  <%= button_to 'Delete Book',@book, :method => :delete, :data => { :confirm => "Burn the book?"} %>
+  <%= button_to 'Delete Book' ,@book, :method => :delete, :data => { :confirm => "Burn the book?"} %>
 <% elsif @current_user.present? %>
   <p>Some stuff about adding book to your bookshelf</p>
 <% else %>

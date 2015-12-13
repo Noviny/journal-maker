@@ -1,6 +1,11 @@
-<h2>Huzzah!</h2>
+<h2>Autopopulate</h2>
+
+<p>Autopopulate currently supports:</p>
+<ul>
+  <li>DailyMTG articles</li>
+</ul>
 
 <%= simple_form_for @article, :url => articles_supercreate_path, :method => :post  do |f| %>
   <%= f.input :url, as: :text %>
-  <%= f.submit 'add all articles' %>
+  <%= f.submit 'Add All Articles' %>
 <% end %>

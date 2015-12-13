@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/users/books' => 'users#books'
   get '/articles/supercreate' => 'articles#supercreate'
   post '/articles/supercreate' => 'articles#supercreating'
+  get '/articles/supercheck' =>  'articles#supercheck'
+
 
   resources :articles, :books
   resources :users, :except => [:edit]

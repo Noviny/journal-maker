@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :check_if_logged_in, :except => [:index, :show, :new]
-  before_action :check_if_mine_or_admin, :only => [:update, :destroy]
+  before_action :check_if_mine_or_admin, :only => [:destroy, :update]
 
   def index
     @books = Book.all
@@ -47,7 +47,7 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:name, :article_ids => [])
+    params.require(:book).permit(:name, :subheading, :description, :article_ids => [])
   end
 
   def check_if_logged_in
@@ -55,6 +55,7 @@ class BooksController < ApplicationController
   end
 
   def check_if_mine_or_admin
-    redirect_to root_path unless ( @current_user.present && ( ( @book.user === @current_user ) || @current_user.admin? ) )
+    book = Book.find params[:id] 
+    redirect_to root_path unless ( @current_user.present? && ( ( book.user === @current_user ) || @current_user.admin? ) )
   end
 end

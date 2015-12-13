@@ -3,7 +3,7 @@
 - Make Book status mean anything (when visiting their show page)( 'new', 'editing', 'binding', 'published') (also I guess whether they are shown in 'all books')
 - Viewable setting toggle option
 
-
+-Nokogiri to fill out 'new' form for superadd
 
 TOPICS
 - Now its own table. Sort this out sometime.

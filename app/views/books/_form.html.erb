@@ -1,8 +1,8 @@
 <%= simple_form_for @book do |f| %>
-  <p>
     <%= f.input :name %>
-  </p>
+    <%= f.input :subheading %>
+    <%= f.input :description %>
   <p>Articles:</p>
     <%= f.collection_check_boxes :article_ids, Article.all, :id, :heading %>
-  <p><%= f.submit %></p>
+  <%= f.submit %>
 <% end %>

@@ -1,5 +1,18 @@
 <h1><%= @book.name %></h1>
+<h2><%= @book.subheading %></h2>
+<p><%= @book.description || 'This book has no description.' %></p>
 
+<% if @current_user.present? && (@book.user === @current_user) %>
+  <p>Status: <%= @book.status || 'undefined' %> - Change the book's status or whatever options go here</p>
+  <p><%= link_to('Edit Book', edit_book_path) %></p>
+  <p><%= button_to 'Delete Book' ,@book, :method => :delete, :data => { :confirm => "Burn the book?"} %></p>
+<% elsif @current_user.present? %>
+  <p>Some whatever about adding book to your bookshelf</p>
+<% else %>
+  <p>Not logged in whatever features</p>
+<% end %>
+
+<h2>Articles in Book</h2>
   <% if @book.articles.any? %>
     <ul>
     <% @book.articles.each do |a| %>
@@ -10,11 +23,4 @@
     <p>No Articles in this book yet.</p>
   <% end %>
 
-<% if @current_user.present? && (@book.user === @current_user) %>
-  <%= link_to('Edit Book', edit_book_path) %>
-  <%= button_to 'Delete Book' ,@book, :method => :delete, :data => { :confirm => "Burn the book?"} %>
-<% elsif @current_user.present? %>
-  <p>Some stuff about adding book to your bookshelf</p>
-<% else %>
-  <p>Not logged in whatever features</p>
-<% end %>
+

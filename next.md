@@ -1,15 +1,20 @@
-- Show and edit for book description and subheading fields
+- Add MANY articles at once, do a mass upload
+
+Add book links to second page to add articles to book.
+
 - Allow chapters to be added to books, articles to be added to chapters
 - Make Book status mean anything (when visiting their show page)( 'new', 'editing', 'binding', 'published') (also I guess whether they are shown in 'all books')
-- Viewable setting toggle option
+- Viewable setting toggle option (nope, paid feature)
 
--Nokogiri to fill out 'new' form for superadd
+-Nokogiri to run through multiple objects
 
 TOPICS
 - Now its own table. Sort this out sometime.
 - lots of has_and_belongs_to_many (articles, books, )
+- Fuck it, learn how to use tags maybe?
 
-- Add MANY articles at once, do a mass upload
+
+
   - can we use Nokogiri to simplify this so they just provide urls and we grab all the details?
 - Books form must be able to include articles form
 

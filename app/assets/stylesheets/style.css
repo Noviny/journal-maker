@@ -1,11 +1,3 @@
-html {
-  min-height: 100%
-}
-
-body {
-  height: 100%
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -29,7 +21,6 @@ nav a {
   color: white;
   padding: 1em;
   border: 0;
-  border: 1px solid white;
 }
 
 nav a:hover {
@@ -52,9 +43,9 @@ h1 {
 }
 
 .content {
-  max-width: 700px;
+  max-width: 100%;
   margin: auto;
-  background: grey;
+  background: rgba(0, 0, 0, 0.3);
   height: 100%;
   padding: 2rem;
 }

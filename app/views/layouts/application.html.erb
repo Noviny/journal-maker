@@ -7,13 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-  <nav>
+  <nav class="navbar">
     <% if @current_user.present? %>
       <%= link_to("Logout #{ @current_user.name }", login_path, :method => :delete) %>
       <%= link_to("My Books", '/users/books') %>
-      <%= link_to('All Articles', articles_path) %>
-      <%= link_to('Add Article', new_article_path) %>
+      <%= link_to('Browse Articles', articles_path) %>
+      <%= link_to('Add Articles', new_article_path) %>
     <% else %>
       <%= link_to('Log In', login_path) %>
       <%= link_to('Sign Up', new_user_path) %>
@@ -22,17 +21,12 @@
     <%= link_to('Create Book', new_book_path) %>
   </nav>
 
-  <% if @current_user.present? %>
-    <p>Hello <%= @current_user.name %></p>
-  <% end %>
-
-  <div class="content">
+  <div class="container content">
     <%= yield %>
   </div>
 
   <footer>
     <p>Created by Benjamin 'Noviny' Conolly</p>
   </footer>
-</div>
 </body>
 </html>

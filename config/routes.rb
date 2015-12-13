@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/articles/supercreate' => 'articles#supercreate'
   post '/articles/supercreate' => 'articles#supercreating'
   get '/articles/supercheck' =>  'articles#supercheck'
-
+  get '/book/:id/articles' => 'books#articles'
 
   resources :articles, :books
   resources :users, :except => [:edit]

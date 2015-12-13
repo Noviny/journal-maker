@@ -4,6 +4,6 @@
   <%= f.input :description, :required => false %>
   <%= f.input :image, :required => false %>
   <%= f.input :excerpt, :required => false %>
-  <%= f.input :date %>
+  <%= f.input :date, :include_blank => true, :required => false %>
   <%= f.submit %>
 <% end %>

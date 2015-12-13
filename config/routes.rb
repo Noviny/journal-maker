@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/articles/supercheck' =>  'articles#supercheck'
   get '/book/:id/articles' => 'books#articles'
 
-  resources :articles, :books
+  resources :articles, :books, :authors, :sources
   resources :users, :except => [:edit]
 
 

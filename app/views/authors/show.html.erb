@@ -1,2 +1,12 @@
-<h1>Authors#show</h1>
-<p>Find me in app/views/authors/show.html.erb</p>
+<h1><%= @author.name %></h1>
+
+<ul>
+  <li><%= @author.job %></li>
+  <li><%= link_to('Edit Details', edit_author_path(@author.id)) %></li>
+  <li>All Articles</li>
+  <ul>
+    <% @author.articles.each do |a| %>
+      <li><%= link_to(a.heading, a.url) %></li>
+    <% end %>
+  </ul>
+</ul>

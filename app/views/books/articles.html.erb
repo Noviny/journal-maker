@@ -1,10 +1,16 @@
 <h2>Now populate your book with articles</h2>
-
+<div class="row">
+  <div class="col-md-6">
 <%= simple_form_for @book, defaults: { input_html: { class: 'form-control' } }, input_html: { class: 'form-horizontal' } do |f| %>
-    <%= f.collection_check_boxes :article_ids, Article.all, :id, :heading %>
+    <%= f.collection_check_boxes :article_ids, Article.all, :id, :heading, input_html: { class: 'checkbox' } %>
+  </div>
+  <div class="col-md-4">
+    <p>Add a new article as well:</p>
     <%= f.simple_fields_for :articles do |na| %>
       <%= na.input :heading %>
       <%= na.input :url %>
     <% end %>
-  <%= f.submit %>
+  <%= f.submit :class => 'btn btn-default' %>
 <% end %>
+</div>
+</div>

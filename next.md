@@ -6,7 +6,8 @@ Add book links to second page to add articles to book.
 - Make Book status mean anything (when visiting their show page)( 'new', 'editing', 'binding', 'published') (also I guess whether they are shown in 'all books')
 - Viewable setting toggle option (nope, paid feature)
 
--Nokogiri to run through multiple objects
+- Lots of adding more than one thing at once
+
 
 TOPICS
 - Now its own table. Sort this out sometime.

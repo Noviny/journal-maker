@@ -2,8 +2,8 @@
 
 <ul>
   <% @authors.each do |a| %>
-    <%= link_to(a.name, author_path(a.id)) %> has <%= pluralize(a.articles.length, 'article') %>
+   <li><%= link_to(a.name, author_path(a.id)) %> has <%= pluralize(a.articles.length, 'article') %></li>
   <% end %>
 </ul>
 
-<p><%= link_to( 'Add New Author', new_author_path ) %></p>
+<p><%= link_to( 'Add New Author', new_author_path, :class => 'btn btn-default' ) %></p>

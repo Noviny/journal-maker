@@ -7,5 +7,5 @@
 <%= simple_form_for @book do |f| %>
   <p>Articles:</p>
     <%= f.collection_check_boxes :article_ids, Article.all, :id, :heading %>
-  <%= f.submit %>
+  <%= f.submit :class => 'btn btn-default' %>
   <% end %>

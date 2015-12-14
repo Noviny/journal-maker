@@ -5,8 +5,14 @@
   <li>DailyMTG articles</li>
 </ul>
 <p>You can pass in other urls, but it might get the details wrong!</p>
+<p>Pass in just the urls of the articles, separated by a comma.</p>
 
+<div class="row">
+  <div class="col-md-8">
 <%= simple_form_for @article, :url => articles_supercreate_path, :method => :post, defaults: { input_html: { class: 'form-control' } }, input_html: { class: 'form-inline' }  do |f| %>
   <%= f.input :url, as: :text %>
-  <%= f.submit 'Add All Articles' %>
+  <%= f.association :books, collection: Book.order(:name), prompt: "Add immediately to book", :include_blank => true, :required => false %>
+  <%= f.submit 'Add All Articles', :class => 'btn btn-default' %>
 <% end %>
+</div>
+</div>

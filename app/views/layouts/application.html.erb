@@ -33,8 +33,11 @@
             <li><%= link_to('Browse all Articles', articles_path) %></li>
             <li><%= link_to('Browse by Author', authors_path) %></li>
             <li><%= link_to('Browse by Source', sources_path) %></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to('Add Articles', new_article_path) %></li>
+            <% if @current_user.present? %>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to('Add Articles', new_article_path) %></li>
+              <li><%= link_to'Quick add Articles', articles_supercreate_path %></li>
+            <% end %>
           </ul>
         </li>
       </ul>

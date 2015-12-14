@@ -1,5 +1,9 @@
+<div class="row">
+  <div class="col-md-6">
 <%= simple_form_for @author, defaults: { input_html: { class: 'form-control' } }, input_html: { class: 'form-inline' } do |f| %>
   <%= f.input :name %>
   <%= f.input :job %>
-  <%= f.submit %>
+  <%= f.submit :class => 'btn btn-default' %>
 <% end %>
+</div>
+</div>

@@ -1,4 +1,4 @@
-<%= simple_form_for @source do |f| %>
+<%= simple_form_for @source, defaults: { input_html: { class: 'form-control' } }, input_html: { class: 'form-horizontal' } do |f| %>
   <%= f.input :name %>
   <%= f.input :domain %>
   <%= f.input :style %>

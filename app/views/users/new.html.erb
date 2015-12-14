@@ -1,6 +1,6 @@
 <h1>Sign up to make a Journal</h1>
 
-<%= simple_form_for @user do |f| %>
+<%= simple_form_for @user, defaults: { input_html: { class: 'form-control' } }, input_html: { class: 'form-horizontal' } do |f| %>
   <%= f.input :name %>
   <%= f.input :email %>
   <%= f.input :password %>

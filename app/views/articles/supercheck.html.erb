@@ -1,7 +1,7 @@
-<h1>Are the details bellow correct?</h1>
+<!-- <h1>Are the details bellow correct?</h1>
 
 
-<%= simple_form_for Article.new do |f| %>
+<%= simple_form_for Article.new, defaults: { input_html: { class: 'form-control' } }, input_html: { class: 'form-horizontal' }do |f| %>
 <% @articles.each do |a| %>
   <%= f.simple_fields_for "articles[]", a do |fa| %>
     <%= fa.input :heading %>
@@ -14,5 +14,8 @@
 <% end %>
 <%= submit_tag 'Add all' %>
 <% end %>
+ -->
 
 
+
+<!-- PAGE NO LONGER IN USE -->

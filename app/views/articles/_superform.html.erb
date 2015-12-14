@@ -1,8 +1,0 @@
-<%= simple_fields_for :articles, a do |f| %>
-  <%= f.input :heading %>
-  <%= f.input :url %>
-  <%= f.input :description, :required => false %>
-  <%= f.input :image, :required => false %>
-  <%= f.input :excerpt, :required => false %>
-  <%= f.input :date, :include_blank => true, :required => false %>
-<% end %>

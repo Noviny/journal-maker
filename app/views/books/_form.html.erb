@@ -1,4 +1,4 @@
-<%= simple_form_for @book do |f| %>
+<%= simple_form_for @book, defaults: { input_html: { class: 'form-control' } }, input_html: { class: 'form-horizontal' } do |f| %>
     <%= f.input :name %>
     <%= f.input :subheading %>
     <%= f.input :description %>

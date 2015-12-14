@@ -1,6 +1,6 @@
 <h2>Now populate your book with articles</h2>
 
-<%= simple_form_for @book do |f| %>
+<%= simple_form_for @book, defaults: { input_html: { class: 'form-control' } }, input_html: { class: 'form-horizontal' } do |f| %>
     <%= f.collection_check_boxes :article_ids, Article.all, :id, :heading %>
     <%= f.simple_fields_for :articles do |na| %>
       <%= na.input :heading %>

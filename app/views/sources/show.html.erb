@@ -1,2 +1,14 @@
-<h1>Sources#show</h1>
-<p>Find me in app/views/sources/show.html.erb</p>
+<h1><%= @source.name %></h1>
+
+<p>Style: <%= @source.style %></p>
+<p>Domain: <%= @source.domain %></p>
+<p>Description: <%= @source.description %></p>
+
+<ul>
+  <% @source.articles.each do |a| %>
+    <li><%= link_to(a.heading, article_path(a.id)) %></li>
+  <% end %>
+</ul>
+
+
+<%= link_to('Edit Source Info', edit_source_path(@source.id)) %>

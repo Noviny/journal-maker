@@ -1,7 +1,8 @@
 <h1><%= @author.name %></h1>
 
 <ul>
-  <li><%= @author.job %></li>
+  <li>Job: <%= @author.job %></li>
+  <li>Topics:</li>
   <li><%= link_to('Edit Details', edit_author_path(@author.id)) %></li>
   <li>All Articles</li>
   <ul>

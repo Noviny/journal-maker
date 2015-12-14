@@ -5,3 +5,5 @@
     <%= link_to(a.name, author_path(a.id)) %> has <%= pluralize(a.articles.length, 'article') %>
   <% end %>
 </ul>
+
+<p><%= link_to( 'Add New Author', new_author_path ) %></p>

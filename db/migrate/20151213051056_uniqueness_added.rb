@@ -3,6 +3,6 @@ class UniquenessAdded < ActiveRecord::Migration
     change_column :users, :email, :string, :uniqueness => true
     change_column :users, :name, :string, :uniqueness => true
     change_column :articles, :url, :string, :uniqueness => true
-    change_column :books, :status, :string, :default => 'Editing'
+    change_column :books, :status, :string, :default => 'editing'
   end
 end

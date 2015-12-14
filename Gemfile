@@ -32,6 +32,8 @@ gem 'acts-as-taggable-on', '~> 3.4'
 
 gem 'nokogiri'
 
+gem 'bootstrap-sass'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

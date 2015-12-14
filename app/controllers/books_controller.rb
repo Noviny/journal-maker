@@ -36,8 +36,11 @@ class BooksController < ApplicationController
   end
 
     def update
+    @article = Article.new article_params
     book = Book.find params[:id]
     book.update book_params
+    book.articles << @article
+    # book.update :article_ids => @article.id
     redirect_to book_path
   end
 
@@ -54,6 +57,10 @@ class BooksController < ApplicationController
   private
   def book_params
     params.require(:book).permit(:name, :subheading, :description, :article_ids => [])
+  end
+
+  def article_params
+    params[:book][:articles].permit(:heading, :url, :description, :image, :excerpt, :date)
   end
 
   def check_if_logged_in

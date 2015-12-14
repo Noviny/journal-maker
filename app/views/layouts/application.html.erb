@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar">
+  <nav>
     <% if @current_user.present? %>
       <%= link_to("Logout #{ @current_user.name }", login_path, :method => :delete) %>
       <%= link_to("My Books", '/users/books') %>
@@ -23,7 +23,7 @@
     <%= link_to('Create Book', new_book_path) %>
   </nav>
 
-  <div class="container content">
+  <div>
     <%= yield %>
   </div>
 

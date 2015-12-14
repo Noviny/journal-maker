@@ -24,19 +24,24 @@ class ArticlesController < ApplicationController
 
   def supercreating
     require 'open-uri'
-    allurls = params[:article][:url].to_array(", ")
+    blockurls = params[:article][:url]
+    allurls = blockurls.split(", ")
     allurls.each do |pageurl|
-      pageurl = params[:article][:url]
       page = Nokogiri::HTML(open(pageurl))
       pageheading = page.css('h1')[0].text
       pagedate = Date.parse((pageurl)[-10..-1])
       pageexcerpt = page.css('div#content-detail-page-of-an-article p')[0].text
-      @article = Article.new(:url => pageurl, :heading => pageheading, :excerpt => pageexcerpt, :date => pagedate)
+      article = Article.new(:url => pageurl, :heading => pageheading, :excerpt => pageexcerpt, :date => pagedate)
+      article.save
     end
-    render articles_supercheck_path
+    redirect_to articles_path
   end
 
   def supercheck
+  end
+
+  def superexperiment
+    @article = Article.new
   end
 
   def edit

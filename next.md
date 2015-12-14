@@ -14,12 +14,15 @@ TOPICS
 - Fuck it, learn how to use tags maybe?
 
 
+- Bootstrap. This will take forever
+
 
   - can we use Nokogiri to simplify this so they just provide urls and we grab all the details?
     - Only if we set it up for the site so it knows what to find.
 - Books form must be able to include articles form
 
 - Authors and sources need the D in CRUD
+- Articles apparently have no D?
 
 - Articles _form need an author and source field
   - this needs to add authors and sources correctly if they don't exist, rather than checkbox or dropdown

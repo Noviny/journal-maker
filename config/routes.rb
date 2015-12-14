@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root :to => 'books#index'
 
+  get 'articles/superexperiment' => 'articles#superexperiment'
+
   get '/users/books' => 'users#books'
   get '/articles/supercreate' => 'articles#supercreate'
   post '/articles/supercreate' => 'articles#supercreating'

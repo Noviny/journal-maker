@@ -1,3 +1,18 @@
 <h1>Are the details bellow correct?</h1>
 
-<%= render :partial => 'form' %>
+
+<%= simple_form_for Article.new do |f| %>
+<% @articles.each do |a| %>
+  <%= f.simple_fields_for "articles[]", a do |fa| %>
+    <%= fa.input :heading %>
+    <%= fa.input :url %>
+    <%= fa.input :description, :required => false %>
+    <%= fa.input :image, :required => false %>
+    <%= fa.input :excerpt, :required => false %>
+    <%= fa.input :date, :include_blank => true, :required => false %>
+  <% end %>
+<% end %>
+<%= submit_tag 'Add all' %>
+<% end %>
+
+

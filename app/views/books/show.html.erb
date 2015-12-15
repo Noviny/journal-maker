@@ -29,11 +29,36 @@
   <% else %>
     <p>No Articles in this book yet.</p>
   <% end %>
+
+
   <% if @book.chapters.any? %>
-    <% @book.chapter.each do |c| %>
-      <%= c.name %>
-    <% end %>
+    <ul>
+      <% @book.chapters.each do |c| %>
+        <li><%= link_to(c.name, book_chapters_path(@book.id, c.id)) %></li>
+        <% if c.articles.any? %>
+          <% c.articles.each do |a| %>
+            <ul>
+              <li><%= link_to(a.heading, a.url) %></li>
+            </ul>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
   <% end %>
+
+
+
+
+   <div class="col-md-6">
+    <div class="input-group">
+      <%= form_tag book_chapters_path(@book), :class => "form-inline" do %>
+        <input type="text" class="form-control" name="name" placeholder="Add Chapter..." >
+        <span class="input-group-btn">
+          <input class="btn btn-default form-control" type="submit">Add</button>
+        </span>
+      <% end %>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
 
   </div>
 </div>

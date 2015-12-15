@@ -38,8 +38,9 @@ class BooksController < ApplicationController
     def update
     book = Book.find params[:id]
     if params[:book][:articles].present?
-      @article = Article.new article_params
-      book.articles << @article
+      article = Article.new article_params
+      article.save
+      book.articles << article
     end
     book.update book_params
     

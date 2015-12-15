@@ -18,6 +18,16 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def edit
+    @article = Article.find params[:id]
+  end
+
+  def update
+    @article = Article.find params[:id]
+    @article.update article_params
+    redirect_to articles_path
+  end
+
   def supercreate
     @article = Article.new
   end
@@ -28,11 +38,21 @@ class ArticlesController < ApplicationController
     allurls = blockurls.split(", ")
     allurls.each do |pageurl|
       page = Nokogiri::HTML(open(pageurl))
-      pageheading = page.css('h1')[0].text
-      pagedate = Date.parse((pageurl)[-10..-1])
-      pageexcerpt = page.css('div#content-detail-page-of-an-article p')[0].text
-      article = Article.new(:url => pageurl, :heading => pageheading, :excerpt => pageexcerpt, :date => pagedate)
-      article.save
+      if pageurl.match('magic.wizards')
+        pageheading = page.css('h1')[0].text
+        pagedate = Date.parse((pageurl)[-10..-1])
+        pageexcerpt = page.css('div#content-detail-page-of-an-article p')[0].text
+        article = Article.new(:url => pageurl, :heading => pageheading, :excerpt => pageexcerpt, :date => pagedate)
+        
+      elsif pageurl.match('theguardian.com')
+        pageheading = page.css("meta[property='og:title']")[0].attributes["content"].value
+        article = Article.new(:url => pageurl, :heading => pageheading)
+      else
+        pageheading = page.css('title').text
+        article = Article.new(:url => pagurl, :heading => pageheading)
+      end
+        article.save
+        article.update article_params
     end
     redirect_to articles_path
   end
@@ -42,16 +62,6 @@ class ArticlesController < ApplicationController
 
   def superexperiment
     @article = Article.new
-  end
-
-  def edit
-    @article = Article.find params[:id]
-  end
-
-  def update
-    @article = Article.find params[:id]
-    @article.update article_params
-    redirect_to articles_path
   end
 
   def show
@@ -66,7 +76,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:heading, :url, :description, :image, :excerpt, :date)
+    params.require(:article).permit(:heading, :url, :description, :image, :excerpt, :date, :author_id, :source_id, :book_ids => [])
   end
 
   def check_if_logged_in

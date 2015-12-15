@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   get '/articles/supercheck' =>  'articles#supercheck'
   get '/book/:id/articles' => 'books#articles'
 
-  resources :articles, :books, :authors, :sources
-  resources :users, :except => [:edit]
+  resources :articles, :authors, :sources, :users
+  resources :books do
+    resources :chapters
+  end
+
 
 
   get '/login' => 'session#new'

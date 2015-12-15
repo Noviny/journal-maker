@@ -6,7 +6,7 @@
   <%= f.input :image, :required => false, wrapper_html: { class: 'form-group' } %>
   <%= f.association :author, collection: Author.order(:name), prompt: "Choose an Author", :include_blank => true, :required => false %>
   <%= f.association :source, collection: Source.order(:name), prompt: "Choose a Source", :include_blank => true, :required => false %>
-  <%= f.association :books, collection: Book.order(:name), prompt: "Add immediately to book", :include_blank => true, :required => false %>
+  <%= f.association :books, :as => :check_boxes, collection: @current_user.books.order(:name), prompt: "Add immediately to book", :include_blank => true, :required => false, input_html: { class: '' } %>
   <%= f.submit :class => 'btn btn-default' %>
 <% end %>
 </div>

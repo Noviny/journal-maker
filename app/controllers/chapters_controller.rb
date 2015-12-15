@@ -21,6 +21,14 @@ class ChaptersController < ApplicationController
     @chapter.update edit_chapter_params
     book = Book.find params[:book_id]
     articles = params[:chapter][:article_ids]
+    raise 'tears'
+    if articles.is_a? Array
+      articles.each do |a|
+        if book.articles.include?( a )
+          book.articles.delete(a)
+        end
+      end
+    end
     redirect_to book_path(params[:book_id])
   end
 

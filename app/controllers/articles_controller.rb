@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
         article = Article.new(:url => pageurl, :heading => pageheading)
       else
         pageheading = page.css('title').text
-        article = Article.new(:url => pagurl, :heading => pageheading)
+        article = Article.new(:url => pageurl, :heading => pageheading)
       end
         article.save
         article.update article_params

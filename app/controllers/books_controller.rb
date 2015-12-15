@@ -18,7 +18,13 @@ class BooksController < ApplicationController
     book = Book.new book_params
     book.user_id = @current_user.id
     book.save
-    redirect_to "/book/#{book.id}/articles"
+    if params[:book][:articles].present?
+      article = Article.new article_params
+      article.save
+      book.articles << article
+    end
+    book.update book_params
+    redirect_to book_path(book)
   end
 
   def articles

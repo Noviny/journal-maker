@@ -1,8 +1,13 @@
 class ChaptersController < ApplicationController
 
+  def show
+    @book = Book.find params[:book_id]
+    @chapter = Chapter.find params[:id]
+  end
+
   def create
     @book = Book.find params[:book_id]
-    @chapter = Chapter.create chapter_params
+    @chapter = Chapter.create create_chapter_params
     redirect_to edit_book_chapter_path(params[:book_id], @chapter.id)
   end
 
@@ -13,13 +18,26 @@ class ChaptersController < ApplicationController
 
   def update
     @chapter = Chapter.find params[:id]
-    @chapter.update chapter_params
+    @chapter.update edit_chapter_params
+    book = Book.find params[:book_id]
+    articles = params[:chapter][:article_ids]
+    redirect_to book_path(params[:book_id])
+  end
+
+  def destroy
+    chapter = Chapter.find params[:id]
+    chapter.destroy
     redirect_to book_path(params[:book_id])
   end
 
 
   private
-  def chapter_params
-    params.permit(:name, :book_id, :chapter_ids => [] )
+
+  def create_chapter_params
+    params.permit(:name, :book_id)
+  end
+
+  def edit_chapter_params
+    params.require(:chapter).permit(:name, :book_id, :article_ids => [] )
   end
 end

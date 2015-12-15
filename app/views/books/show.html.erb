@@ -10,7 +10,7 @@
 <% if @current_user.present? && (@book.user === @current_user) %>
   <p>Status: <%= @book.status || 'undefined' %> - Change the book's status or whatever options go here</p>
   <p><%= link_to('Edit Book', edit_book_path, :class => 'btn btn-default') %></p>
-  <p><%= button_to 'Delete Book' ,@book, :method => :delete, :class => 'btn btn-danger' , :data => { :confirm => "Burn the book?"} %></p>
+  <p><%= link_to( 'Delete Book' ,@book, :method => :delete, :class => 'btn btn-danger' , :data => { :confirm => "Burn the book?"} ) %></p>
 <% elsif @current_user.present? %>
   <p>Some whatever about adding book to your bookshelf</p>
 <% else %>
@@ -18,32 +18,33 @@
 <% end %>
 </div>
 <dv class="col-md-2"></dv>
-<div class="col-md-6">
+<div class="col-md-4">
 <h2>Index</h2>
-  <% if @book.articles.any? %>
-    <ul>
-    <% @book.articles.each do |a| %>
-      <li><%= link_to(a.heading, a.url) %></li>
-    <% end %>
-    </ul>
-  <% else %>
-    <p>No Articles in this book yet.</p>
+  <% if @book.chapters.any? %>
+    <div class="list-group">
+      <% @book.chapters.each do |c| %>
+        <%= link_to(c.name, book_chapter_path(@book.id, c.id), :class => 'list-group-item list-group-item-info' ) %>
+        <% if c.articles.any? %>
+        <div class="list-group">
+          <% c.articles.each do |a| %>
+              <%= link_to(a.heading, a.url, :class => 'list-group-item') %>
+          <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
 
 
-  <% if @book.chapters.any? %>
-    <ul>
-      <% @book.chapters.each do |c| %>
-        <li><%= link_to(c.name, book_chapters_path(@book.id, c.id)) %></li>
-        <% if c.articles.any? %>
-          <% c.articles.each do |a| %>
-            <ul>
-              <li><%= link_to(a.heading, a.url) %></li>
-            </ul>
-          <% end %>
-        <% end %>
-      <% end %>
-    </ul>
+  <h2>Unsorted Articles</h2>
+    <% if @book.articles.any? %>
+  <div class="list-group">
+    <% @book.articles.each do |a| %>
+      <%= link_to(a.heading, a.url, :class => 'list-group-item') %>
+    <% end %>
+    </div>
+  <% else %>
+    <p>No Articles in this book yet.</p>
   <% end %>
 
 

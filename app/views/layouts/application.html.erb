@@ -19,7 +19,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to('Placename', root_path, :class => 'navbar-brand') %>
+      <%= link_to('Bookmarks+', root_path, :class => 'navbar-brand') %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,8 +44,12 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if @current_user.present? %>
-          <li><%= link_to("My Books", '/users/books') %></li> 
-          <li><%= link_to("Log out #{ @current_user.name }", login_path, :method => :delete ) %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= @current_user.name %><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to("My Books", '/users/books') %></li> 
+            <li><%= link_to("Log out #{ @current_user.name }", login_path, :method => :delete ) %></li>
+          </ul>
         <% else %>
           <li><%= link_to('Log In', login_path) %></li>
           <li><%= link_to('Sign Up', new_user_path) %></li>

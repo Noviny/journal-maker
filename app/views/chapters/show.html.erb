@@ -1,0 +1,15 @@
+<h1><%= @chapter.name %> <small>in: <%= @book.name %></small></h1>
+
+
+<% if @chapter.articles.any? %>
+  <ul>
+    <% @chapter.articles.each do |a| %>
+    <li><%= link_to(a.heading, a.url) %></li>
+    <% end %>
+  </ul>  
+<% else %>
+  <p>No Articles here yet.</p>
+<% end %>
+
+<%= link_to('Edit Chapter', edit_book_chapter_path(@book, @chapter), :class => 'btn btn-default' ) %>
+<%= link_to('Delete Chapter', book_chapter_path(@book, @chapter), :method => :delete, :class => 'btn btn-danger' , :data => { :confirm => "All articles still in the chapter will be lost"} ) %>

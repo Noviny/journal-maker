@@ -1,10 +1,21 @@
 <h1>Articles in our database</h1>
-
-<ul>
+<div class="row">
+  <div class="col-md-10">
+<table class="table table-hover">
+  <tr>
+    <td>Name</td>
+    <td>Details</td>
+    <td>Edit</td>
+    <td>Books</td>
+  </tr>
   <% @articles.each do |a| %>
-    <ul>
-    <li><%= link_to( a.heading, a.url ) %> - <%= link_to( 'See full details', article_path(a.id) ) %> - <%= link_to( 'Edit Details', edit_article_path(a.id) ) %></li>
-    <li>This article appears in <%= pluralize(a.books.length, 'book') %></li>
-    </ul>
+    <tr>
+    <td><%= link_to( a.heading, a.url ) %></td>
+      <td><%= link_to( 'See full details', article_path(a.id) ) %></td>
+      <td><%= link_to( 'Edit Details', edit_article_path(a.id) ) %></td>
+    <td><%= pluralize(a.books.length, 'book') %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
+</div>
+</div>

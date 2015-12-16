@@ -1,12 +1,16 @@
 <h1>All Books</h1>
 <div class="row">
   <div class="col-md-8">
-    <table class="table table-hover">
+    <table class="table table-hover tablesorter tablesorter-bootstrap" id="allBooks">
+      <thead>
       <tr>
         <td>Book</td>
         <td>Subheading</td>
         <td>Articles</td>
+        <td>Edit</td>
       </tr>
+      </thead>
+      <tbody>
     <% @books.each do |b| %>
       <tr>
         <td><%= link_to(b.name, book_path(b.id)) %></td>
@@ -17,7 +21,7 @@
         <% end %>
       </tr>
     <% end %>
-
+    </tbody>
     </table>
   </div>
 </div>

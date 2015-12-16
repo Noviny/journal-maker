@@ -12,4 +12,6 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-tablesorter/theme.bootstrap
+ *= require jquery-tablesorter/addons/pager/jquery.tablesorter.pager
  */

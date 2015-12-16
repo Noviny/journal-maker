@@ -1,0 +1,15 @@
+<h2>Index</h2>
+  <% if @book.chapters.any? %>
+    <div class="list-group">
+      <% @book.chapters.each do |c| %>
+        <%= link_to(c.name, book_chapter_path(@book.id, c.id), :class => 'list-group-item list-group-item-info' ) %>
+        <% if c.articles.any? %>
+        <div class="list-group">
+          <% c.articles.each do |a| %>
+              <%= link_to(a.heading, a.url, :class => 'list-group-item') %>
+          <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>

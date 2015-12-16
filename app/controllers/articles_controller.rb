@@ -49,10 +49,14 @@ class ArticlesController < ApplicationController
         article = Article.new(:url => pageurl, :heading => pageheading)
       else
         pageheading = page.css('title').text
+        pagesource = pageurl.match(/(https?:\/\/)?(www.)?(\w+.\w+(.?\w+))?/)[3]
+        source = Source.find_or_create_by! :name => pagesource
         article = Article.new(:url => pageurl, :heading => pageheading)
       end
-        article.save
-        article.update article_params
+      
+      article.save
+      source.articles << article if pagesource
+      article.update article_params
     end
     redirect_to articles_path
   end
@@ -76,7 +80,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:heading, :url, :description, :image, :excerpt, :date, :author_id, :source_id, :book_ids => [])
+    params.require(:article).permit(:heading, :url, :description, :image, :excerpt, :date, :author_id, :source_id, :book_ids => [], :chapter_ids => "" )
   end
 
   def check_if_logged_in

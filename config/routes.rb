@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'articles/superexperiment' => 'articles#superexperiment'
 
-  get '/book/:id/format' => 'books#format'
+  get '/books/:id/format' => 'books#format'
   get '/users/books' => 'users#books'
   get '/articles/supercreate' => 'articles#supercreate'
   post '/articles/supercreate' => 'articles#supercreating'

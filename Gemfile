@@ -34,6 +34,8 @@ gem 'nokogiri'
 
 gem 'bootstrap-sass'
 
+gem 'jquery-tablesorter'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -1,21 +1,39 @@
 <h1>Articles in our database</h1>
 <div class="row">
   <div class="col-md-10">
-<table class="table table-hover">
+<table class="table table-hover tablesorter-bootstrap" id="allArticles">
+  <thead>
   <tr>
     <td>Name</td>
+    <td>Source</td>
+    <td>Author</td>
+    <td>Publish Date</td>
     <td>Details</td>
     <td>Edit</td>
-    <td>Books</td>
+    <td>Included in</td>
   </tr>
+  </thead>
+  <tbody>
   <% @articles.each do |a| %>
     <tr>
-    <td><%= link_to( a.heading, a.url ) %></td>
-      <td><%= link_to( 'See full details', article_path(a.id) ) %></td>
+      <td><%= link_to( a.heading, a.url ) %></td>
+      <td><%= link_to( a.source.name, source_path(a.source) ) %></td>
+      <% if a.author.present? %>
+        <td><%= link_to( a.author.name, author_path(a.author) ) %></td>
+      <% else %>
+        <td></td>
+      <% end %>
+      <% if a.date? %>
+        <td><%= a.date %></td>
+      <% else %>
+        <td></td>
+      <% end %>
+      <td><%= link_to( 'More Info', article_path(a.id) ) %></td>
       <td><%= link_to( 'Edit Details', edit_article_path(a.id) ) %></td>
     <td><%= pluralize(a.books.length, 'book') %></td>
     </tr>
   <% end %>
+  </tbody>
 </table>
 </div>
 </div>

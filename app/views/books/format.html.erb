@@ -1,0 +1,23 @@
+<%= simple_form_for @book do |f| %>
+  <ul>
+    <% @book.articles.each do |a| %>
+      <li>
+        <%= a.heading %>
+        <%= f.collection_radio_buttons :chapter_ids, @book.chapters.all, :id, :name %> 
+      </li>
+    <% end %>
+  </ul>
+  <%= f.submit :class => 'btn btn-default' %>
+  <% end %>
+
+
+<% @book.articles.each do |a1| %>
+  <%= simple_form_for a1, remote: true do |f1| %>
+      <p>
+        <%= a1.heading %>
+        <%= f1.collection_radio_buttons :chapter_ids, @book.chapters.all, :id, :name %>
+        <%= f1.submit %>
+      </p>
+
+    <% end %>
+<% end %>

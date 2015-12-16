@@ -41,18 +41,23 @@ class BooksController < ApplicationController
     end
   end
 
-    def update
-    book = Book.find params[:id]
-    if params[:book][:articles].present?
-      article = Article.new article_params
-      article.save
-      book.articles << article
-    end
-    book.update book_params
-    
-    # book.update :article_ids => @article.id
-    redirect_to book_path
-    end
+  def update
+    raise 'questions'
+  book = Book.find params[:id]
+  if params[:book][:articles].present?
+    article = Article.new article_params
+    article.save
+    book.articles << article
+  end
+  book.update book_params
+  
+  # book.update :article_ids => @article.id
+  redirect_to book_path
+  end
+
+  def format
+    @book = Book.find params[:id]
+  end
 
   def show
     @book = Book.find params[:id]

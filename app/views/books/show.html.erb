@@ -9,12 +9,9 @@
 
 <% if @current_user.present? && (@book.user === @current_user) %>
   <p>Status: <%= @book.status || 'undefined' %> - Change the book's status or whatever options go here</p>
-  <p><%= link_to('Edit Book', edit_book_path, :class => 'btn btn-default') %></p>
-  <p><%= link_to( 'Delete Book' ,@book, :method => :delete, :class => 'btn btn-danger' , :data => { :confirm => "Burn the book?"} ) %></p>
-<% elsif @current_user.present? %>
-  <p>Some whatever about adding book to your bookshelf</p>
-<% else %>
-  <p>Not logged in whatever features</p>
+  <%= link_to('Edit Details', edit_book_path, :class => 'btn btn-default') %>
+  <%= link_to('Bind Book', "/books/#{@book.id}/format", :class => 'btn btn-default' ) %>
+  <%= link_to( 'Delete Book' ,@book, :method => :delete, :class => 'btn btn-danger' , :data => { :confirm => "Burn the book?"} ) %>
 <% end %>
 </div>
 <dv class="col-md-2"></dv>

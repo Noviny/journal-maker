@@ -49,11 +49,11 @@ ActiveRecord::Schema.define(version: 20151214010923) do
   create_table "books", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.text     "description"
     t.string   "subheading"
-    t.string   "status"
+    t.string   "status",      default: "editing"
     t.boolean  "private"
   end
 

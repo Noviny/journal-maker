@@ -38,6 +38,7 @@ class ArticlesController < ApplicationController
     allurls = blockurls.split(", ")
     allurls.each do |pageurl|
       page = Nokogiri::HTML(open(pageurl))
+      # binding.pry
       if pageurl.match('magic.wizards')
         pageheading = page.css('h1')[0].text
         pagedate = Date.parse((pageurl)[-10..-1])
@@ -56,7 +57,7 @@ class ArticlesController < ApplicationController
       
       article.save
       source.articles << article if pagesource
-      article.update article_params
+      # article.update article_params
     end
     redirect_to articles_path
   end

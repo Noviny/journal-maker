@@ -8,7 +8,7 @@
         <%= link_to(c.name, book_chapter_path(@book.id, c.id)) %>
         </div>
         <div class="col-md-4">
-        <%= link_to( 'Delete Chapter' , book_chapter_path(@book, c), :method => :delete, :class => 'btn btn-danger' , :data => { :confirm => "Burn the book?"} ) %>
+        <%= link_to( 'Delete Chapter' , book_chapter_path(@book, c), :method => :delete, :class => 'btn btn-danger' , :data => { :confirm => "Delete Chapter?"} ) %>
         </div>
         </div>
         </div>
@@ -17,14 +17,9 @@
           <% c.articles.each do |a| %>
             <div class="list-group-item">
             <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
               <%= link_to(a.heading, a.url) %>
             </div>
-            <div class="row">
-            <div class="col-md-4">
-              <%= link_to( 'Remove Article', article_path(a), :method => :delete, :class => 'btn btn-danger') %>
-                </div>
-              </div>
             </div>
           </div>
           <% end %>

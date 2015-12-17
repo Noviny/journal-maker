@@ -36,9 +36,9 @@ class ArticlesController < ApplicationController
     require 'open-uri'
     blockurls = params[:article][:url]
     allurls = blockurls.split(", ")
+    book = Book.find params[:article][:book_ids].first
     allurls.each do |pageurl|
       page = Nokogiri::HTML(open(pageurl))
-      # binding.pry
       if pageurl.match('magic.wizards')
         pageheading = page.css('h1')[0].text
         pagedate = Date.parse((pageurl)[-10..-1])
@@ -54,9 +54,9 @@ class ArticlesController < ApplicationController
         source = Source.find_or_create_by! :name => pagesource
         article = Article.new(:url => pageurl, :heading => pageheading)
       end
-      
       article.save
       source.articles << article if pagesource
+      book.articles << article
       # article.update article_params
     end
     redirect_to articles_path

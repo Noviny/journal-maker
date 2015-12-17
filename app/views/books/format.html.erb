@@ -5,8 +5,8 @@
   <%= simple_form_for a1, :url => book_chapter_path(@book, a1), item_wrapper_class: { class: 'btn-group' } do |f1| %>
       <p><%= a1.heading %></p>
       <div class="radio">
-        <%= f1.collection_radio_buttons(:chapter_ids, @book.chapters.all, :id, :name, item_wrapper_tag: :div, item_wrapper_class: :radio) { |b| content_tag(:label) {b.radio_button + b.label } } %>
-        <%= f1.submit 'Add to chapter' %>
+        <%= f1.collection_radio_buttons(:chapter_ids, @book.chapters.all, :id, :name, item_wrapper_tag: :div, :item_wrapper_class => 'inline radio' ) { |b| content_tag(:label) {b.radio_button + b.label } } %>
+        <%= f1.submit 'Add to chapter', :class => 'btn btn-default' %>
         </div>
     <% end %>
 <% end %>

@@ -38,7 +38,11 @@ class ArticlesController < ApplicationController
     allurls = blockurls.split(", ")
     book = Book.find params[:article][:book_ids].first
     allurls.each do |pageurl|
-      page = Nokogiri::HTML(open(pageurl))
+      begin
+        page = Nokogiri::HTML(open(pageurl))
+      rescue OpenURI::HTTPError => error
+        # Some code in here probably?
+      end
       if pageurl.match('magic.wizards')
         pageheading = page.css('h1')[0].text
         pagedate = Date.parse((pageurl)[-10..-1])
@@ -57,16 +61,8 @@ class ArticlesController < ApplicationController
       article.save
       source.articles << article if pagesource
       book.articles << article
-      # article.update article_params
     end
     redirect_to articles_path
-  end
-
-  def supercheck
-  end
-
-  def superexperiment
-    @article = Article.new
   end
 
   def show

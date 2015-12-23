@@ -1,15 +1,18 @@
 == Bookmarks Plus
 
+Current live site:
+https://journal-maker-app.herokuapp.com/
+
 Bookmarks+ is an application designed to extend the usefulness of links, allowing people with specialized knowledge to order links into 'books', and then share it with others.
 
-Version 1.0.0
+Version 0.0.2
 This version is a simple website, that allows 'articles' to be added to the database, and then put into books, and sorted by chapters. It does not yet support donloading files from bookmarks, which will require building a chrome extension.
 
 The goal of this process is to allow people with knowledge of where to find relevant information able to sort and share it as easily as possible.
 
 As of version 1.0.0, the easiest upload method is the 'quick add articles', which allows you to paste in many links, adding all of them immediately to a previously created list.
 
-'Binding' is the best method to quickly assign articles to chapters.
+'Binding' is the best method to quickly assign articles to chapters, however requires both adding chapters first, as well as adding all articles to the book.
 
 Incomplete Features:
 Authors cannot be automatically found, and need to be entered manually.

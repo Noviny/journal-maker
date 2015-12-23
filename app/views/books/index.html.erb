@@ -1,3 +1,17 @@
+<% unless @current_user.present? %>
+  <h3>Welcome to Bookmarks Plus!</h3>
+  <p>Bookmarks Plus is a new way to organize information for sharing and reading. The site is currently in a beta as we roll out necessary features. To get started, we recommend creating a new user profile, creating a book, then copying a collection of links into our autopopulate feature.</p>
+  <p>The idea is to collect links to articles on a topic in a single 'book', and then divide that into chapters, providing a clean easy reading list for reviewing a topic, or introducing it to another person. While the initial idea is to just create books from existing web articles, Bookmarks Plus uses urls, so any piece of web content can be included in a book.</p>
+  <p>Currently we are working on a chrome extension that allows you to make a book directly from a chrome folder, as well as display a sidebr for a book to make browsing through it easier.</p>
+<% end %>
+  <h3>Outstanding Issues:</h3>
+  <ul>
+    <li>Using the mass upload feature breaks if it cannot return results from any url in the array, and gives no feedback as to which link breaks it. If you wish to add many articles, we recommend doing them in batches until we resolve this.</li>
+    <li>The mass upload may fail to properly grab some properties. We recommend going through the book and checking the listed articles once you are done.</li>
+    <li>There is no way to search the current database for books or articles. This is to be addressed as soon as the chrome extension is integrated. The articles table can be sorted by clicking on the relevant title.</li>
+    <li>Articles cannot be reordered within a book or chapter. Chapters cannot be reordered within a book. This feature should be implemented within the next several days.</li>
+  </ul>
+
 <h1>All Books</h1>
 <div class="row">
   <div class="col-md-8">
@@ -6,8 +20,8 @@
       <tr>
         <td>Book</td>
         <td>Subheading</td>
+        <td>Creator</td>
         <td>Articles</td>
-        <td>Edit</td>
       </tr>
       </thead>
       <tbody>
@@ -15,10 +29,9 @@
       <tr>
         <td><%= link_to(b.name, book_path(b.id)) %></td>
         <td><small><%= b.subheading %></small></td>
+        <td><%= b.user.name %></td>
         <td><%= pluralize( b.articles.length, 'article' ) %></td>
-        <% if b.user === @current_user %>
-        <td><%= link_to('Edit', edit_book_path(b.id) ) %></td>
-        <% end %>
+
       </tr>
     <% end %>
     </tbody>

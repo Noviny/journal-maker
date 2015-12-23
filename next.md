@@ -1,5 +1,17 @@
-Add source when uploading anything (generate source if source isn't in DB)
- - Really just need the domain as a simplish grouping tool.
+Reorder articles and chapters within books
+ - Set order as well I guess
+
+
+Make book status do something useful
+
+Examine not-logged-in browsing
+
+Add topics
+
+Searching and limiting what is returned/displayed
+
+
+
 
 Book edit page
 Make this super-rich

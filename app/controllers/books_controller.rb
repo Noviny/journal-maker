@@ -24,7 +24,7 @@ class BooksController < ApplicationController
       book.articles << article
     end
     book.update book_params
-    redirect_to book_path(book)
+    redirect_to articles_supercreate_path
   end
 
   def articles

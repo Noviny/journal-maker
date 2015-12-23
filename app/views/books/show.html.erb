@@ -1,50 +1,45 @@
+
+
+
 <div class="row">
   <div class="col-md-4">
     <div class="page-header">
-<h1><%= @book.name %>: <small><%= @book.subheading %></small></h1>
-</div>
-<blockquote>
-<p><%= @book.description || 'This book has no description.' %></p>
-</blockquote>
-
-<% if @current_user.present? && (@book.user === @current_user) %>
-  <p>Status: <%= @book.status || 'undefined' %> - Change the book's status or whatever options go here</p>
-  <%= link_to('Edit Details', edit_book_path, :class => 'btn btn-default') %>
-  <%= link_to('Bind Book', "/books/#{@book.id}/format", :class => 'btn btn-default' ) %>
-  <%= link_to( 'Delete Book' ,@book, :method => :delete, :class => 'btn btn-danger' , :data => { :confirm => "Burn the book?"} ) %>
-<% end %>
-</div>
-<div class="col-md-2"></div>
-<div class="col-md-5">
-
-
-<%= render :partial => 'index' %>
-
-
-  <h2>All Articles</h2>
-    <% if @book.articles.any? %>
-  <div class="list-group">
-    <% @book.articles.each do |a| %>
-      <%= link_to(a.heading, a.url, :class => 'list-group-item') %>
-    <% end %>
+      <h1><%= @book.name %>: <small><%= @book.subheading %></small></h1>
     </div>
-  <% else %>
-    <p>No Articles in this book yet.</p>
-  <% end %>
+    <blockquote>
+      <p><%= @book.description || 'This book has no description.' %></p>
+    </blockquote>
 
+    <% if @current_user.present? && (@book.user === @current_user) %>
+      <p>Status: <%= @book.status || 'undefined' %> - Change the book's status or whatever options go here</p>
+      <%= link_to('Edit Details', edit_book_path, :class => 'btn btn-default') %>
+      <%= link_to('Bind Book', "/books/#{@book.id}/format", :class => 'btn btn-default' ) %>
+      <%= link_to('Add Links', articles_supercreate_path, :class => 'btn btn-default' ) %>
+      <%= link_to( 'Delete Book' ,@book, :method => :delete, :class => 'btn btn-danger' , :data => { :confirm => "Burn the book?"} ) %>
+    <% end %>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-6">
+    <%= render :partial => 'index' %>
+      <h2>All Articles</h2>
+        <% if @book.articles.any? %>
+      <div class="list-group">
+        <% @book.articles.each do |a| %>
+          <%= link_to(a.heading, a.url, :class => 'list-group-item') %>
+        <% end %>
+      </div>
+      <% else %>
+        <p>No Articles in this book yet.</p>
+      <% end %>
 
-
-
-   <div class="col-md-6">
+<!--   The input group here seems to be bugging out the divs, and stopping columns -->
     <div class="input-group">
       <%= form_tag book_chapters_path(@book), :class => "form-inline" do %>
         <input type="text" class="form-control" name="name" placeholder="Add Chapter..." >
         <span class="input-group-btn">
-          <input class="btn btn-default form-control" type="submit">Add</button>
+          <input class="btn btn-default form-control" type="submit" value="add">
         </span>
       <% end %>
     </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-
   </div>
 </div>

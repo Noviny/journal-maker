@@ -38,17 +38,12 @@ class ArticlesController < ApplicationController
     allurls = blockurls.split(", ")
     book = Book.find params[:article][:book_ids].first
     allurls.each do |pageurl|
-      begin
         page = Nokogiri::HTML(open(pageurl))
-      rescue OpenURI::HTTPError => error
-        # Some code in here probably?
-      end
       if pageurl.match('magic.wizards')
         pageheading = page.css('h1')[0].text
         pagedate = Date.parse((pageurl)[-10..-1])
         pageexcerpt = page.css('div#content-detail-page-of-an-article p')[0].text
         article = Article.new(:url => pageurl, :heading => pageheading, :excerpt => pageexcerpt, :date => pagedate)
-        
       elsif pageurl.match('theguardian.com')
         pageheading = page.css("meta[property='og:title']")[0].attributes["content"].value
         article = Article.new(:url => pageurl, :heading => pageheading)
@@ -63,6 +58,7 @@ class ArticlesController < ApplicationController
       book.articles << article
     end
     redirect_to articles_path
+
   end
 
   def show

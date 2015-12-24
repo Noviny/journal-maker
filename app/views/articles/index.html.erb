@@ -6,9 +6,7 @@
   <tr>
     <td>Name</td>
     <td>Source</td>
-    <td>Author</td>
-    <td>Publish Date</td>
-    <td>Details</td>
+    <td>url</td>
     <td>Edit</td>
     <td>Included in</td>
   </tr>
@@ -16,19 +14,9 @@
   <tbody>
   <% @articles.each do |a| %>
     <tr>
-      <td><%= link_to( a.heading, a.url ) %></td>
+      <td><%= link_to( a.heading, article_path(a.id) ) %></td>
       <td><%= link_to( a.source.name, source_path(a.source) ) %></td>
-      <% if a.author.present? %>
-        <td><%= link_to( a.author.name, author_path(a.author) ) %></td>
-      <% else %>
-        <td></td>
-      <% end %>
-      <% if a.date? %>
-        <td><%= a.date %></td>
-      <% else %>
-        <td></td>
-      <% end %>
-      <td><%= link_to( 'More Info', article_path(a.id) ) %></td>
+      <td><%= link_to( a.url, a.url ) %></td>
       <td><%= link_to( 'Edit Details', edit_article_path(a.id) ) %></td>
     <td><%= pluralize(a.books.length, 'book') %></td>
     </tr>

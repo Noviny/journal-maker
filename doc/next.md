@@ -2,14 +2,17 @@ Reorder articles and chapters within books
  - Set order as well I guess
 
 
+Complex JS tables, hide or display parts of the table at user leisure, so user gets only info relevant to them.
+
 Make book status do something useful
 
-Examine not-logged-in browsing
+Examine not-logged-in browsing - basically locked out of everything. Fix or remove the buttons
 
 Add topics
 
 Searching and limiting what is returned/displayed
 
+Make 'choose article for book' useful
 
 
 

@@ -38,7 +38,11 @@ class ArticlesController < ApplicationController
     allurls = blockurls.split(", ")
     book = Book.find params[:article][:book_ids].first
     allurls.each do |pageurl|
+      begin
         page = Nokogiri::HTML(open(pageurl))
+      rescue
+        next
+      end
       if pageurl.match('magic.wizards')
         pageheading = page.css('h1')[0].text
         pagedate = Date.parse((pageurl)[-10..-1])

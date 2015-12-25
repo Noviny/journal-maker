@@ -1,6 +1,3 @@
-
-
-
 <div class="row">
   <div class="col-md-4">
     <div class="page-header">
@@ -11,7 +8,8 @@
     </blockquote>
 
     <% if @current_user.present? && (@book.user === @current_user) %>
-      <p>Status: <%= @book.status || 'undefined' %> - Change the book's status or whatever options go here</p>
+      <p>Status: <%= @book.status || 'undefined' %></p>
+      <p>Once all the articles you want are in the book, use 'bind book' to easily sort them into chapters.</p>
       <%= link_to('Edit Details', edit_book_path, :class => 'btn btn-default') %>
       <%= link_to('Bind Book', "/books/#{@book.id}/format", :class => 'btn btn-default' ) %>
       <%= link_to('Add Links', articles_supercreate_path, :class => 'btn btn-default' ) %>

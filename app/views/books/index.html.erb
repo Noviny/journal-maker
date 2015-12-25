@@ -21,7 +21,9 @@
         <td>Book</td>
         <td>Subheading</td>
         <td>Creator</td>
+        <td>Status</td>
         <td>Articles</td>
+        <td>Edit</td>
       </tr>
       </thead>
       <tbody>
@@ -30,8 +32,11 @@
         <td><%= link_to(b.name, book_path(b.id)) %></td>
         <td><small><%= b.subheading %></small></td>
         <td><%= b.user.name %></td>
+        <td><%= b.status %></td>
         <td><%= pluralize( b.articles.length, 'article' ) %></td>
-
+        <% if b.user_id === @current_user.id %>
+          <td><%= link_to('Edit Book', "/books/#{b.id}/format") %></td>
+        <% end %>
       </tr>
     <% end %>
     </tbody>

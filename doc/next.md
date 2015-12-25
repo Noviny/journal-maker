@@ -11,6 +11,10 @@ Redo the following pages:
 Reorder articles and chapters within books
  - Set order as well I guess
 
+When sorting table, sort by multiple columns (or just add search) (or add dropdown or radio button to select common show points)
+
+Add the MARO book(s) to the live site to have obvious use-cases around.
+
 Create absolute route for the books/format page.
 
 Get tricky with finding where people added data from to send them back there (create a chapter while binding, go back to binding, that kind of junk)

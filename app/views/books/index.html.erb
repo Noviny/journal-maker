@@ -33,7 +33,7 @@
         <td><%= b.user.name %></td>
         <td><%= b.status %></td>
         <td><%= pluralize( b.articles.length, 'article' ) %></td>
-        <% if b.user_id === @current_user.id %>
+        <% if @current_user.present? && ( b.user_id === @current_user.id ) %>
           <td><%= link_to('Edit Book', "/books/#{b.id}/format") %></td>
         <% end %>
       </tr>

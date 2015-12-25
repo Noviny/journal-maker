@@ -11,6 +11,8 @@ Redo the following pages:
 Reorder articles and chapters within books
  - Set order as well I guess
 
+Check out the navbar, and figure out where all the buttons should optimally go.
+
 When sorting table, sort by multiple columns (or just add search) (or add dropdown or radio button to select common show points)
 
 Add the MARO book(s) to the live site to have obvious use-cases around.

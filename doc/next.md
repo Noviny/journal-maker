@@ -1,7 +1,18 @@
 Add topics
  - to books, to articles, to authors, to sources
 
+https://github.com/DataTables/DataTables
+ - Solution for display articles. Better than current tables software because live search
+ - Still can't minimize sections, sadly
+
+Remove articles from chapters easily (from the format page)
+
 Hide styles or add value to them
+
+Find out why there was error in mass add, I think on getting to the next page?
+
+Just article name in the book page? Any different info? Author? Source?
+  - Ideally, this should be customisable
 
 Redo the following pages:
   All author paths
@@ -10,6 +21,8 @@ Redo the following pages:
 
 Reorder articles and chapters within books
  - Set order as well I guess
+
+ Make 'delete chapter' buttons look neater
 
 Check out the navbar, and figure out where all the buttons should optimally go.
 

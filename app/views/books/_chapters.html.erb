@@ -16,12 +16,15 @@
         <div class="list-group">
           <% c.articles.each do |a| %>
             <div class="list-group-item">
-            <div class="row">
-            <div class="col-md-12">
-              <%= link_to(a.heading, a.url) %>
+              <div class="row">
+                <div class="col-md-9">
+                  <%= link_to(a.heading, a.url) %>
+                </div>
+                <div class="col-md-3">
+                  <%= link_to('Remove', "/books/#{@book.id}/#{c.id}/#{a.id}", :method => :post, :class => 'btn btn-danger' )  %>
+                </div>
+              </div>
             </div>
-            </div>
-          </div>
           <% end %>
           </div>
         <% end %>

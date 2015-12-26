@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/articles/supercreate' => 'articles#supercreating'
   get '/articles/supercheck' =>  'articles#supercheck'
   get '/book/:id/articles' => 'books#articles'
+  post '/books/:book_id/:chapter_id/:articles_id' => 'chapters#remove'
 
   resources :articles, :authors, :sources, :users
   resources :books do

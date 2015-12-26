@@ -2,11 +2,20 @@
 
 <p><%= link_to('Add Source', new_source_path) %></p>
 
-<ul>
+<table class="table table-hover tablesorter tablesorter-bootstrap" id="allArticles">
+  <thead>
+  <tr>
+    <td>Source</td>
+    <td>Edit</td>
+    <td>All Articles</td>
+  </tr>
+  </thead>
+  <tbody>
   <% @sources.each do |s| %>
-    <li>Name: <%= s.name %> - <%= link_to('Edit Source Info', edit_source_path(s.id)) %> - <%= link_to('all articles', source_path(s.id)) %></li>
-    <ul>
-      <li>Style: <%= s.style %></li>
-    </ul>
+    <tr>
+      <td><%= s.name %></td>
+      <td><%= link_to('Edit Source Info', edit_source_path(s.id)) %></td>
+      <td><%= link_to('all articles', source_path(s.id)) %></td>
+    </tr>
   <% end %>
-</ul>
+</tbody>

@@ -11,6 +11,11 @@ class ChaptersController < ApplicationController
     redirect_to edit_book_chapter_path(params[:book_id], @chapter.id)
   end
 
+  def order
+    raise 'questions'
+
+  end
+
   def edit
     @book = Book.find params[:book_id]
     @chapter = Chapter.find params[:id]

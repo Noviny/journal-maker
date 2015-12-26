@@ -5,12 +5,25 @@
         <div class="list-group-item list-group-item-info">
           <div class="row">
             <div class="col-md-8">
-        <%= link_to(c.name, book_chapter_path(@book.id, c.id)) %>
-        </div>
-        <div class="col-md-4">
-        <%= link_to( 'Delete Chapter' , book_chapter_path(@book, c), :method => :delete, :class => 'btn btn-danger' , :data => { :confirm => "Delete Chapter?"} ) %>
-        </div>
-        </div>
+              <%= link_to(c.name, book_chapter_path(@book.id, c.id)) %>
+            </div>
+            <div class="col-md-4">
+              <%= link_to( 'Delete Chapter' , book_chapter_path(@book, c), :method => :delete, :class => 'btn btn-danger' , :data => { :confirm => "Delete Chapter?"} ) %>
+            </div>
+          </div>
+
+            <form action="" class="article-order" method="post">
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">New Order</span>
+                  <input type="text" class="form-control" placeholder="New order by name or IDs" aria-describedby="basic-addon1" id="articles" >
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Sort</button>
+                  </span>
+                </div>
+              </div>
+            </form>
+
         </div>
         <% if c.articles.any? %>
         <div class="list-group">
@@ -18,10 +31,10 @@
             <div class="list-group-item">
               <div class="row">
                 <div class="col-md-9">
-                  <%= link_to(a.heading, a.url) %>
+                  <%= a.id %>. <%= link_to(a.heading, a.url) %>
                 </div>
                 <div class="col-md-3">
-                  <%= link_to('Remove', "/books/#{@book.id}/#{c.id}/#{a.id}", :method => :post, :class => 'btn btn-danger' )  %>
+                  <%= link_to('Remove', "/books/#{@book.id}/#{c.id}/#{a.id}", :method => :post, :class => 'btn btn-default' )  %>
                 </div>
               </div>
             </div>

@@ -5,10 +5,6 @@ https://github.com/DataTables/DataTables
  - Solution for display articles. Better than current tables software because live search
  - Still can't minimize sections, sadly
 
-Remove articles from chapters easily (from the format page)
-
-Hide styles or add value to them
-
 Find out why there was error in mass add, I think on getting to the next page?
 
 Just article name in the book page? Any different info? Author? Source?
@@ -22,7 +18,7 @@ Redo the following pages:
 Reorder articles and chapters within books
  - Set order as well I guess
 
- Make 'delete chapter' buttons look neater
+ Make 'delete chapter' buttons look neater - built into the panel thing on the right hand side.
 
 Check out the navbar, and figure out where all the buttons should optimally go.
 
@@ -30,7 +26,7 @@ When sorting table, sort by multiple columns (or just add search) (or add dropdo
 
 Add the MARO book(s) to the live site to have obvious use-cases around.
 
-Create absolute route for the books/format page.
+Create absolute route for the books/format page and remove article path
 
 Get tricky with finding where people added data from to send them back there (create a chapter while binding, go back to binding, that kind of junk)
 

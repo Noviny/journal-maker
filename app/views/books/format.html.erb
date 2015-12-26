@@ -1,16 +1,18 @@
 <div class="rows"></div>
-  <div class="col-md-4">
+  <div class="col-md-5">
     <h2>Choose Chapters for Articles</h2>
     <% if @book.chapters.any? %>
       <% @book.articles.each do |a1| %>
         <% if ( a1.chapter_ids & @book.chapter_ids  ).empty? %>
-          <%= simple_form_for a1, :url => book_chapter_path(@book, a1), item_wrapper_class: { class: 'btn-group' } do |f1| %>
-              <p><%= a1.heading %></p>
-              <div class="radio">
+          <div class="panel panel-default">
+            <%= simple_form_for a1, :url => book_chapter_path(@book, a1), item_wrapper_class: { class: 'btn-group' } do |f1| %>
+              <div class="panel-heading"><%= a1.heading %></div>
+              <div class="radio panel-body">
                 <%= f1.collection_radio_buttons(:chapter_ids, @book.chapters.all, :id, :name, item_wrapper_tag: :div, :item_wrapper_class => 'inline radio' ) { |b| content_tag(:label) {b.radio_button + b.label } } %>
                 <%= f1.submit 'Add to chapter', :class => 'btn btn-default' %>
                 </div>
-              <% end %>
+            <% end %>
+          </div>
           <% end %>
       <% end %>
     <% else %>
@@ -29,12 +31,12 @@
     <%= render :partial => 'chapters' %>
 
     <div class="input-group">
-          <%= form_tag book_chapters_path(@book), :class => "form-inline" do %>
-            <input type="text" class="form-control" name="name" placeholder="Add Chapter..." >
-            <span class="input-group-btn">
-              <input class="btn btn-default form-control" type="submit" value="add">
-            </span>
-          <% end %>
+      <%= form_tag book_chapters_path(@book), :class => "form-inline" do %>
+        <input type="text" class="form-control" name="name" placeholder="Add Chapter..." >
+        <span class="input-group-btn">
+          <input class="btn btn-default form-control" type="submit" value="add">
+        </span>
+      <% end %>
     </div><!-- /input-group -->
 
   </div>

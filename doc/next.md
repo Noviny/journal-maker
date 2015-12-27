@@ -1,3 +1,6 @@
+Fix the durn order link that is super broke.
+
+
 Add topics
  - to books, to articles, to authors, to sources
 
@@ -18,7 +21,7 @@ Redo the following pages:
 Reorder articles and chapters within books
  - Set order as well I guess
 
- Make 'delete chapter' buttons look neater - built into the panel thing on the right hand side.
+Make 'delete chapter' buttons look neater - built into the panel thing on the right hand side.
 
 Check out the navbar, and figure out where all the buttons should optimally go.
 

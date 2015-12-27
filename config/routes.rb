@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/articles/supercheck' =>  'articles#supercheck'
   get '/book/:id/articles' => 'books#articles'
   post '/books/:book_id/:chapter_id/:articles_id' => 'chapters#remove'
+  post '/books/:book_id/:chapter_id' => 'chapters#order'
 
   resources :articles, :authors, :sources, :users
   resources :books do

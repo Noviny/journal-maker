@@ -12,7 +12,14 @@
             </div>
           </div>
 
-            <form action="/books/<%= @book.id %>/<%= c.id %>" class="article-order" method="post">
+          <%= simple_form_for c, :url => "/books/#{@book.id}/#{c.id}", :method => :post, defaults: { input_html: { class: 'form-control' } }, input_html: { class: 'form-horizontal' } do |f|  %>
+            <%= f.input :article_ids %>
+            <%= f.submit "Reorder Articles" %>
+          <% end %>
+
+
+
+<!--             <form action="/books/" class="article-order" method="post">
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon" id="basic-addon1">New Order</span>
@@ -22,7 +29,7 @@
                   </span>
                 </div>
               </div>
-            </form>
+            </form> -->
 
         </div>
         <% if c.articles.any? %>

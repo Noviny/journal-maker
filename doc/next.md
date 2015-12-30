@@ -14,6 +14,7 @@ https://github.com/DataTables/DataTables
 Find out why there was error in mass add, I think on getting to the next page?
  - Clinical Trials failed
 
+Hide styles or add value to them
 
 Redo the following pages:
   All author paths

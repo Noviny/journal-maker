@@ -62,6 +62,7 @@ class ArticlesController < ApplicationController
       book.articles << article
     end
     redirect_to articles_path
+
   end
 
   def show

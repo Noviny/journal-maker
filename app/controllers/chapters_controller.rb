@@ -38,12 +38,6 @@ class ChaptersController < ApplicationController
     end
   end
 
-  def remove
-    chapter = Chapter.find params[:chapter_id]
-    chapter.articles.delete params[:articles_id]
-    redirect_to "/books/#{params[:book_id]}/format"
-  end
-
   def destroy
     chapter = Chapter.find params[:id]
     chapter.destroy

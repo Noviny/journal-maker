@@ -1,6 +1,9 @@
 Fix the durn order link that is super broke.
 
 
+Add flashes when things break
+
+
 Add topics
  - to books, to articles, to authors, to sources
 
@@ -9,9 +12,8 @@ https://github.com/DataTables/DataTables
  - Still can't minimize sections, sadly
 
 Find out why there was error in mass add, I think on getting to the next page?
+ - Clinical Trials failed
 
-Just article name in the book page? Any different info? Author? Source?
-  - Ideally, this should be customisable
 
 Redo the following pages:
   All author paths

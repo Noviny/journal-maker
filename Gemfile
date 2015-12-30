@@ -36,6 +36,8 @@ gem 'bootstrap-sass'
 
 gem 'jquery-tablesorter'
 
+gem 'acts_as_list'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

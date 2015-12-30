@@ -15,7 +15,7 @@ class ChaptersController < ApplicationController
     chapter = Chapter.find params[:chapter_id]
     all_articles = params[:chapter][:article_ids].split(" ").map { |i| Integer(i) }
     if all_articles.sort === chapter.article_ids.sort
-      chapter.article_ids = all_articles
+      chapter.index = all_articles
     end
     redirect_to "/books/#{chapter.book_id}/format"
   end

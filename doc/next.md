@@ -2,6 +2,12 @@ Fix the durn order link that is super broke.
 
 
 Add flashes when things break
+ - Add this as a huge priority
+
+
+Refactor!
+
+Fat controllers, skinny models?
 
 
 Add topics

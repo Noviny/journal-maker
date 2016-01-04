@@ -44,7 +44,12 @@ class ChaptersController < ApplicationController
     redirect_to book_path(params[:book_id])
   end
 
-
+  def remove
+    chapter = Chapter.find params[:chapter_id]
+    chapter.articles.delete params[:articles_id]
+    redirect_to "/books/#{params[:book_id]}/format"
+  end
+  
   private
 
   def create_chapter_params

@@ -16,29 +16,29 @@
   <div class="col-md-8">
     <table class="table table-hover tablesorter tablesorter-bootstrap" id="allBooks">
       <thead>
-      <tr>
-        <td>Book</td>
-        <td>Subheading</td>
-        <td>Creator</td>
-        <td>Status</td>
-        <td>Articles</td>
-        <td>Edit</td>
-      </tr>
+        <tr>
+          <td>Book</td>
+          <td>Subheading</td>
+          <td>Creator</td>
+          <td>Status</td>
+          <td>Articles</td>
+          <td>Edit</td>
+        </tr>
       </thead>
       <tbody>
-    <% @books.each do |b| %>
-      <tr>
-        <td><%= link_to(b.name, book_path(b.id)) %></td>
-        <td><small><%= b.subheading %></small></td>
-        <td><%= b.user.name %></td>
-        <td><%= b.status %></td>
-        <td><%= pluralize( b.articles.length, 'article' ) %></td>
-        <% if @current_user.present? && ( b.user_id === @current_user.id ) %>
-          <td><%= link_to('Edit Book', "/books/#{b.id}/format") %></td>
+        <% @books.each do |b| %>
+          <tr>
+            <td><%= link_to(b.name, book_path(b.id)) %></td>
+            <td><small><%= b.subheading %></small></td>
+            <td><%= b.user.name %></td>
+            <td><%= b.status %></td>
+            <td><%= pluralize( b.articles.length, 'article' ) %></td>
+            <% if @current_user.present? && ( b.user_id === @current_user.id ) %>
+              <td><%= link_to('Edit Book', "/books/#{b.id}/format") %></td>
+            <% end %>
+          </tr>
         <% end %>
-      </tr>
-    <% end %>
-    </tbody>
+      </tbody>
     </table>
   </div>
 </div>

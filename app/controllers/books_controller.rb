@@ -49,8 +49,6 @@ class BooksController < ApplicationController
       book.articles << article
     end
     book.update book_params
-    
-    # book.update :article_ids => @article.id
     redirect_to book_path
   end
 

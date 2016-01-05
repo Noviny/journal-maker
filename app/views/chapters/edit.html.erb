@@ -3,10 +3,10 @@
 
 <div class="row">
   <div class="col-md-5">
-  <%= simple_form_for @chapter, :url => book_chapter_path, defaults: { input_html: { class: 'form-control' } }, input_html: { class: 'form-horizontal' } do |f| %>
-    <%= f.input :name %>
-    <%= f.collection_check_boxes :article_ids, @book.articles.all, :id, :heading %>
-    <p><%= f.submit :class => 'btn btn-default' %></p>
-  <% end %>
-</div>
+    <%= simple_form_for @chapter, :url => book_chapter_path, defaults: { input_html: { class: 'form-control' } }, input_html: { class: 'form-horizontal' } do |f| %>
+      <%= f.input :name %>
+      <%= f.collection_check_boxes :article_ids, @book.articles.all, :id, :heading %>
+      <p><%= f.submit :class => 'btn btn-default' %></p>
+    <% end %>
+  </div>
 </div>

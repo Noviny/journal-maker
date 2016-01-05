@@ -27,9 +27,7 @@
 
 
   <div class="col-md-6">
-
     <%= render :partial => 'chapters' %>
-
     <div class="input-group">
       <%= form_tag book_chapters_path(@book), :class => "form-inline" do %>
         <input type="text" class="form-control" name="name" placeholder="Add Chapter..." >
@@ -37,8 +35,6 @@
           <input class="btn btn-default form-control" type="submit" value="add">
         </span>
       <% end %>
-    </div><!-- /input-group -->
-
+    </div>
   </div>
-
 </div>

@@ -36,11 +36,13 @@ class ArticlesController < ApplicationController
     require 'open-uri'
     blockurls = params[:article][:url]
     allurls = blockurls.split(", ")
-    book = Book.find params[:article][:book_ids].first
+    book = Book.find params[:article][:book_ids].first unless params[:article][:book_ids] = [""]
+    failed_pages = []
     allurls.each do |pageurl|
       begin
         page = Nokogiri::HTML(open(pageurl))
       rescue
+        failed_pages.push(pageurl)
         next
       end
       if pageurl.match('magic.wizards')
@@ -60,6 +62,9 @@ class ArticlesController < ApplicationController
       article.save
       source.articles << article if pagesource
       book.articles << article
+    end
+    if failed_pages.length > 0
+      flash[:alert] = "We could not process the following urls: #{failed_pages.join(", ")}."
     end
     redirect_to articles_path
 
